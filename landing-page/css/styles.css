@@ -1,0 +1,234 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+
+/* ---- Base Rules ---- */
+
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background: #FFF;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #111;
+}
+
+/* Typeography General*/
+h1 {   
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    font-size: 3em;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-size: 4em;
+}
+
+h3 {
+    font-family: 'Arial', serif;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 100;
+    font-size: 1.5em;
+}
+
+p {
+    line-height: 1.4em;
+    font-size: 0.8em;
+    font-family: 'Cousine', monospace;
+    font-style: italic;
+    text-align: justify;
+}
+
+/* ---- Layout Rules ---- */
+
+main {
+    margin: auto;
+    width:100vw;
+}
+
+.main__hero {
+    position: relative;
+    text-align: center;
+    height: 90vh;
+    top:80px;
+    display: flex;
+}
+
+section {
+    padding: 0px 10vw;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    transition: all 350ms ease;
+    background: transparent;
+}
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+.navbar__menu {
+    width:100vw;
+    height:80px;
+    -webkit-box-shadow: 0px 17px 56px 3px rgba(0,0,0,0.09);
+    -moz-box-shadow: 0px 17px 56px 3px rgba(0,0,0,0.09);
+    box-shadow: 0px 17px 56px 3px rgba(0,0,0,0.09);
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar__menu ul {
+    position: relative;
+    top:-2px;
+    padding-left: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.navbar__menu li {
+    display: inline-block;
+    padding-right: 16px;
+}
+
+.linktosection{
+    text-decoration: none;
+    color:inherit;
+}
+
+
+
+/* Header Styles */
+.page__header {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+/* Footer Styles */
+.page__footer {
+    background: #000;
+    padding: 3em;
+    color: #fff;
+}
+
+.page__footer p{
+    color: #fff;
+}
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+    max-width: 640px;
+}
+
+.line{
+    position: relative;
+    border-top:solid #111 10px;
+    width:80px;
+    margin-bottom: 16px;
+}
+
+.line.right{
+    margin-right:0px;
+    margin-left: auto;
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+
+#section1.active {
+    background: url(../img/Pareidolia.jpg) #CB843D no-repeat;
+    background-size: cover;
+    transition: all 350ms ease;
+    transition: color 100ms ease;
+    color:white;
+}
+
+#section2.active {
+    background: url(../img/quixotic.png) #DDD no-repeat;
+    background-size: cover;
+    transition: background 250ms ease;
+}
+
+#section3.active {
+    background: url(../img/elysium.jpg) #ADA596 no-repeat;
+    background-size: cover;
+    transition: background 250ms ease;
+    transition: color 100ms ease;
+    color:white;
+}
+
+#section4.active {
+    background: url(../img/petrichor.jpg) #6B705C no-repeat;
+    background-size: cover;
+    transition: background 250ms ease;
+    color:#000;
+}
+
+.linktosection.active{
+    font-weight: bold;
+}
+
+section.active .line {
+    border-top-color:#FFF;
+}
+section:nth-of-type(even).active .line {
+    border-top-color:#000;
+}
+
+/* ------------ MEDIA RULES  ------------  */
+    /* ------------ SMARTPHONES ------------  */
+    @media only screen and (max-width: 800px), 
+    @media only screen and (min-device-width: 480px){
+        section {
+        padding: 0px 0px;
+        }
+        .landing__container {
+        max-width: width:50%;;
+        padding: 4em;
+        }
+    }
+
+    /* ------------  TABLETS PORTRAIT ------------  */
+    @media only screen and (min-width: 801px) and (max-width: 1023px){
+        
+    }
+
+    /* ------------  TABLET LANDSCAPE / DESKTOP ------------ */
+    @media only screen and (min-width: 1024px) {
+        .landing__container {
+            max-width: 640px;
+            padding: 4em;
+        }
+        h1 {
+            font-size: 5em;
+            text-align: center;
+        }
+    }
+
