@@ -61,7 +61,7 @@ function renderMenu(text) {
 	a.innerHTML = text.textContent;
 	a.setAttribute('class', 'linktosection');
 	// make nav items corresponding with sections by placing them in the a href
-	//a.setAttribute('href', '#');
+	a.setAttribute('href', '#');
 }
 
 /**
@@ -109,10 +109,16 @@ window.addEventListener('scroll', function () {
 aLink.forEach(function (linkItem) {
 	linkItem.addEventListener('click', function(event) {
 		textPart.forEach(function (part){
-			if (part.querySelector('h2').textContent == linkItem.textContent) {	
-				let blck = part.parentNode.dataset.block;
-				document.getElementById(blck).scrollIntoView({ behavior: 'smooth'});
-			}
+			let bounding = part.getBoundingClientRect();
+			const inBound = {};
+			inBound.top = bounding.top >= 0 && bounding.top <= (window.innerHeight || document.documentElement.clientHeight);
+			inBound.bottom = bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.bottom >= 0;
+			console.log(inBound.top);
+			window.scrollTo({
+				top: inBound.top,
+			  	left: 0,
+			  	behavior: 'smooth'
+			});
 		});
 	});
 });

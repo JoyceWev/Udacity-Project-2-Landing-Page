@@ -105,13 +105,14 @@ section {
 .navbar__menu li {
     display: inline-block;
     padding-right: 16px;
-    cursor: pointer;
 }
 
 .linktosection{
     text-decoration: none;
     color:inherit;
 }
+
+
 
 /* Header Styles */
 .page__header {
