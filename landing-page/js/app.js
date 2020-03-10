@@ -34,7 +34,6 @@ let isInViewport = function (elem) {
 	const inBound = {};
 	inBound.top = bounding.top >= 0 && bounding.top <= (window.innerHeight || document.documentElement.clientHeight);
 	inBound.bottom = bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.bottom >= 0;
-	inBound.all = inBound.top && inBound.bottom;
 	inBound.any = inBound.top || inBound.bottom;
 	return inBound.any;
 };
@@ -73,11 +72,13 @@ function renderMenu(text) {
 // Add class 'active' to section when near top of viewport, and delete when out of it
 window.addEventListener('scroll', function () {
 	textPart.forEach(function (part) {
+		part.parentNode.classList.remove("active");
 		if (isInViewport(part)) {
+			textPart.forEach(function (otherPart){
+				otherPart.parentNode.classList.remove("active");
+			})
 			part.parentNode.classList.add("active");
-		} else {
-			part.parentNode.classList.remove("active");
-		}
+		} 
 	});
 });
 
